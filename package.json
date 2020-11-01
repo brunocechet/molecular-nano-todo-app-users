@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "faker": "^5.1.0",
+    "ioredis": "^4.19.2",
     "moleculer": "^0.14.0",
     "moleculer-db": "^0.8.10"
   },

@@ -11,7 +11,7 @@ This is a [Moleculer](https://moleculer.services/)-based microservice. Generated
 
 ## NPM scripts
 
-- `yarn dev`: Start development mode (with hot-reload & REPL)
-- `yarn start`: Start production mode
-- `yarn lint`: Run ESLint
-- `yarn ci`: Run continuous test mode with watching
+- `npm run dev`: Start development mode (with hot-reload & REPL)
+- `npm run start`: Start production mode
+- `npm run lint`: Run ESLint
+- `npm run ci`: Run continuous test mode with watching

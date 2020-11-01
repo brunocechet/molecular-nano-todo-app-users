@@ -41,29 +41,31 @@ module.exports = {
       // Using colors on the output
       colors: true,
       // Print module names with different colors (like docker-compose for containers)
-      moduleColors: false,
+      moduleColors: true,
       // Line formatter. It can be "json", "short", "simple", "full", a `Function` or a template string like "{timestamp} {level} {nodeID}/{mod}: {msg}"
       formatter: 'full',
       // Custom object printer. If not defined, it uses the `util.inspect` method.
       objectPrinter: null,
       // Auto-padding the module name in order to messages begin at the same column.
-      autoPadding: false,
+      autoPadding: true,
     },
   },
   // Default log level for built-in console logger. It can be overwritten in logger options above.
   // Available values: trace, debug, info, warn, error, fatal
-  logLevel: 'info',
+  logLevel: 'debug',
 
   // Define transporter.
   // More info: https://moleculer.services/docs/0.14/networking.html
-  transporter: {
-    type: 'TCP',
-    logger: true,
-  },
+  //   transporter: 'TCP',
 
   // Define a cacher.
   // More info: https://moleculer.services/docs/0.14/caching.html
-  cacher: null,
+  cacher: {
+    type: 'memory',
+    options: {
+      ttl: 30, // 30 seconds
+    },
+  },
 
   // Define a serializer.
   // Available values: "JSON", "Avro", "ProtoBuf", "MsgPack", "Notepack", "Thrift".
@@ -80,9 +82,9 @@ module.exports = {
     // Count of retries
     retries: 5,
     // First delay in milliseconds.
-    delay: 100,
+    delay: 200,
     // Maximum delay in milliseconds.
-    maxDelay: 1000,
+    maxDelay: 2000,
     // Backoff factor for delay. 2 means exponential backoff.
     factor: 2,
     // A function to check failed requests.

@@ -16,6 +16,12 @@ module.exports = {
    * Settings
    */
   settings: {
+    // Exposed port
+    port: process.env.PORT || 4000,
+
+    // Exposed IP
+    ip: '0.0.0.0',
+
     fields: ['id', 'name'],
 
     entityValidator: {
@@ -60,7 +66,7 @@ module.exports = {
      * connection establishing & the collection is empty.
      */
     async seedDB() {
-      const mockData = new Array(150).fill({}).map(() => ({ id: faker.random.uuid, name: faker.name.findName() }));
+      const mockData = new Array(15).fill({}).map(() => ({ id: faker.random.uuid, name: faker.name.findName() }));
 
       await this.adapter.insertMany(mockData);
     },

@@ -1,5 +1,6 @@
 'use strict';
 
+const ApiGateway = require('moleculer-web');
 const DbMixin = require('./mixins/db.mixin');
 const faker = require('faker');
 
@@ -10,7 +11,7 @@ const faker = require('faker');
 module.exports = {
   name: 'users',
   version: 1,
-  mixins: [DbMixin('users')],
+  mixins: [ApiGateway, DbMixin('users')],
 
   /**
    * Settings

@@ -1,0 +1,33 @@
+{
+  "name": "molecular-nano-todo-app-users",
+  "version": "1.0.0",
+  "description": "Microservice for users management",
+  "author": "Bruno Cechet",
+  "license": "MIT",
+  "scripts": {
+    "dev": "moleculer-runner --repl --hot service.js",
+    "start": "moleculer-runner service.js",
+    "ci": "jest --watch",
+    "test": "jest --coverage",
+    "lint": "eslint *.js"
+  },
+  "keywords": [
+    "microservices",
+    "moleculer"
+  ],
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^25.1.0",
+    "jest-cli": "^25.1.0",
+    "moleculer-repl": "^0.6.2"
+  },
+  "dependencies": {
+    "faker": "^5.1.0",
+    "moleculer": "^0.14.0",
+    "moleculer-db": "^0.8.10"
+  },
+  "engines": {
+    "node": ">= 10.x.x"
+  }
+}

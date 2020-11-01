@@ -47,8 +47,8 @@ module.exports = {
       // Custom object printer. If not defined, it uses the `util.inspect` method.
       objectPrinter: null,
       // Auto-padding the module name in order to messages begin at the same column.
-      autoPadding: false
-    }
+      autoPadding: false,
+    },
   },
   // Default log level for built-in console logger. It can be overwritten in logger options above.
   // Available values: trace, debug, info, warn, error, fatal
@@ -58,7 +58,7 @@ module.exports = {
   // More info: https://moleculer.services/docs/0.14/networking.html
   transporter: {
     type: 'TCP',
-    logger: true
+    logger: true,
   },
 
   // Define a cacher.
@@ -86,7 +86,7 @@ module.exports = {
     // Backoff factor for delay. 2 means exponential backoff.
     factor: 2,
     // A function to check failed requests.
-    check: err => err && !!err.retryable
+    check: (err) => err && !!err.retryable,
   },
 
   // Limit of calling level. If it reaches the limit, broker will throw an MaxCallLevelError error. (Infinite loop protection)
@@ -117,7 +117,7 @@ module.exports = {
     // Available values: "RoundRobin", "Random", "CpuUsage", "Latency", "Shard"
     strategy: 'RoundRobin',
     // Enable local action call preferring. Always call the local action instance if available.
-    preferLocal: true
+    preferLocal: true,
   },
 
   // Settings of Circuit Breaker. More info: https://moleculer.services/docs/0.14/fault-tolerance.html#Circuit-Breaker
@@ -133,7 +133,7 @@ module.exports = {
     // Number of milliseconds to switch from open to half-open state
     halfOpenTime: 10 * 1000,
     // A function to check failed requests.
-    check: err => err && err.code >= 500
+    check: (err) => err && err.code >= 500,
   },
 
   // Settings of bulkhead feature. More info: https://moleculer.services/docs/0.14/fault-tolerance.html#Bulkhead
@@ -154,21 +154,6 @@ module.exports = {
   // Enable/disable built-in metrics function. More info: https://moleculer.services/docs/0.14/metrics.html
   metrics: {
     enabled: false,
-    // Available built-in reporters: "Console", "CSV", "Event", "Prometheus", "Datadog", "StatsD"
-    reporter: {
-      type: 'Prometheus',
-      options: {
-        // HTTP port
-        port: 3030,
-        // HTTP URL path
-        path: '/metrics',
-        // Default labels which are appended to all metrics labels
-        defaultLabels: registry => ({
-          namespace: registry.broker.namespace,
-          nodeID: registry.broker.nodeID
-        })
-      }
-    }
   },
 
   // Enable built-in tracing function. More info: https://moleculer.services/docs/0.14/tracing.html
@@ -185,9 +170,9 @@ module.exports = {
         // Width of row
         width: 100,
         // Gauge width in the row
-        gaugeWidth: 40
-      }
-    }
+        gaugeWidth: 40,
+      },
+    },
   },
 
   // Register custom middlewares
@@ -197,17 +182,11 @@ module.exports = {
   replCommands: null,
 
   // Called after broker created.
-  created(broker) {
-
-  },
+  created(broker) {},
 
   // Called after broker started.
-  async started(broker) {
-
-  },
+  async started(broker) {},
 
   // Called after broker stopped.
-  async stopped(broker) {
-
-  }
+  async stopped(broker) {},
 };
